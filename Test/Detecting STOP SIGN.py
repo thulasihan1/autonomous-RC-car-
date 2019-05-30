@@ -10,6 +10,7 @@ def detect():
         stop_signs = stop_cascade.detectMultiScale(gray,1.3,5)
         for(x,y,w,h) in stop_signs:
             img = cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
+            cv2.putText(img,"STOP SIGN W: " + str(w) + " H: " + str(h), (x, y-5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 0, 2)
             print("Stop Sign Detected with Height of " + str(h) + " and width of " + str(w))
 
         cv2.imshow("camera", frame)
